@@ -18,9 +18,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
-            android:paddingTop="20dp"
-
-            >
+            android:paddingTop="20dp">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -28,14 +26,14 @@
                 app:srcCompat="@mipmap/ic_launcher_round"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_gravity=""
                 />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingLeft="10dp">
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
 
                 <TextView
                     android:paddingTop="@dimen/nav_header_vertical_spacing"
@@ -57,8 +55,8 @@
         <ToggleButton
             android:id="@+id/resumo"
             style=""
-            android:textOff="Resumo"
-            android:textOn="Resumo"
+            android:textOff="@string/resumo"
+            android:textOn="@string/resumo"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -66,8 +64,8 @@
 
         <ToggleButton
             android:id="@+id/financeiro"
-            android:textOff="Financeiro"
-            android:textOn="Financeiro"
+            android:textOff="@string/financeiro"
+            android:textOn="@string/financeiro"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -75,8 +73,8 @@
 
         <ToggleButton
             android:id="@+id/beneficio"
-            android:textOff="Benefícios"
-            android:textOn="Benefícios"
+            android:textOff="@string/beneficios"
+            android:textOn="@string/beneficios"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"

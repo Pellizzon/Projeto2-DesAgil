@@ -7,15 +7,15 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
-            android:title="Menu Inicial" />
+            android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_pagto"
             android:icon="@drawable/ic_monetization_on_black_24dp"
-            android:title="Demonstrativo de Pagamento" />
+            android:title="@string/menu_payment" />
         <item
             android:id="@+id/nav_ferias"
             android:icon="@drawable/ic_beach_access_black_24dp"
-            android:title="Férias" />
+            android:title="@string/menu_vacation"/>
         <item
             android:id="@+id/nav_IR"
             android:icon="@drawable/ic_money_off_black_24dp"
