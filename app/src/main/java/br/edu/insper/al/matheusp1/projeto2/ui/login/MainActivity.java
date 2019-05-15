@@ -1,5 +1,6 @@
 package br.edu.insper.al.matheusp1.projeto2.ui.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
 import br.edu.insper.al.matheusp1.projeto2.R;
+import br.edu.insper.al.matheusp1.projeto2.data.LoginRepository;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -88,6 +90,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_IR) {
 
+        } else if (id == R.id.nav_logout) {
+            // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            // Inicia a Activity especificada na Intent.
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

@@ -11,10 +11,13 @@
     <string name="menu_payment">Demonstrativo de pagamento</string>
     <string name="menu_vacation">Férias</string>
     <string name="menu_IR">Imposto de Renda</string>
+    <string name="menu_logout">LogOut</string>
 
     <string name="financeiro">Financeiro</string>
     <string name="resumo">Resumo</string>
     <string name="beneficios">Benefícios</string>
+    <string name="logout">Logout</string>
+    <string name="imposto">Imposto de Renda</string>
 
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>
