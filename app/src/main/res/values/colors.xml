@@ -3,4 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="roxo_avante">#500551</color>
+    <color name="amarelo_avante">#ffc627</color>
+    <color name="branco">#ffffff</color>
 </resources>
