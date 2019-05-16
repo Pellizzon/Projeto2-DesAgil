@@ -16,23 +16,27 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
 import br.edu.insper.al.matheusp1.projeto2.R;
-import br.edu.insper.al.matheusp1.projeto2.data.LoginRepository;
 
-public class MainActivity extends AppCompatActivity
+public class ImpostoActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_imposto);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.getMenu().getItem(0).setChecked(true);
+        navigationView.getMenu().getItem(3).setChecked(true);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -53,7 +57,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.imposto, menu);
         return true;
     }
 
@@ -78,24 +82,24 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_pagto) {
+        if (id == R.id.nav_home) {
             // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
-            Intent intent = new Intent(MainActivity.this, PgtoActivity.class);
+            Intent intent = new Intent(ImpostoActivity.this, MainActivity.class);
+            // Inicia a Activity especificada na Intent.
+            startActivity(intent);
+        } else if (id == R.id.nav_pagto) {
+            // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
+            Intent intent = new Intent(ImpostoActivity.this, PgtoActivity.class);
             // Inicia a Activity especificada na Intent.
             startActivity(intent);
         } else if (id == R.id.nav_ferias) {
             // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
-            Intent intent = new Intent(MainActivity.this, FeriasActivity.class);
-            // Inicia a Activity especificada na Intent.
-            startActivity(intent);
-        } else if (id == R.id.nav_IR) {
-            // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
-            Intent intent = new Intent(MainActivity.this, ImpostoActivity.class);
+            Intent intent = new Intent(ImpostoActivity.this, FeriasActivity.class);
             // Inicia a Activity especificada na Intent.
             startActivity(intent);
         } else if (id == R.id.nav_logout) {
             // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent = new Intent(ImpostoActivity.this, LoginActivity.class);
             // Inicia a Activity especificada na Intent.
             startActivity(intent);
         }
