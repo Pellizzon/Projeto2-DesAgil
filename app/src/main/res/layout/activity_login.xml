@@ -11,6 +11,16 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".ui.login.LoginActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="160dp"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/descricao_imagem"
+        android:src="@drawable/avante_logo_roxo"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <EditText
         android:id="@+id/username"
         android:layout_width="0dp"
