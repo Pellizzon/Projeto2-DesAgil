@@ -52,33 +52,10 @@
 
         </LinearLayout>
 
-        <ToggleButton
-            android:id="@+id/resumo"
-            style=""
-            android:textOff="@string/resumo"
-            android:textOn="@string/resumo"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
+        <ExpandableListView
+            android:id="@+id/elvCompra"
             android:layout_width="match_parent"
-            android:layout_margin="20dp"/>
-
-        <ToggleButton
-            android:id="@+id/financeiro"
-            android:textOff="@string/financeiro"
-            android:textOn="@string/financeiro"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_margin="20dp"/>
-
-        <ToggleButton
-            android:id="@+id/beneficio"
-            android:textOff="@string/beneficios"
-            android:textOn="@string/beneficios"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_margin="20dp"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
