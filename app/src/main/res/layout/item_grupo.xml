@@ -15,7 +15,7 @@
         android:textStyle="bold"
         android:textSize="14sp"/>
 
-    <EditText
+    <TextView
         android:id="@+id/tvValor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity
 
         ExpandableListView elvCompra = (ExpandableListView) findViewById(R.id.elvCompra);
 
-
         // cria os grupos
         List<String> lstGrupos = new ArrayList<>();
         lstGrupos.add("Resumo");
