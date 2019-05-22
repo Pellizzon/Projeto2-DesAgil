@@ -23,7 +23,7 @@ import java.util.List;
 import br.edu.insper.al.matheusp1.projeto2.R;
 import br.edu.insper.al.matheusp1.projeto2.data.LoginRepository;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends SecondaryActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -46,13 +46,13 @@ public class MainActivity extends AppCompatActivity
         // cria os grupos
         List<String> lstGrupos = new ArrayList<>();
         lstGrupos.add("Resumo");
-        lstGrupos.add("Benefícios");
+        lstGrupos.add("Beneficios");
         lstGrupos.add("Férias");
 
         // cria os itens de cada grupo
         List<Dados> lstReusmo = new ArrayList<>();
         lstReusmo.add(new Dados("Nome", "vitor"));
-        lstReusmo.add(new Dados("Rg", "21421424"));
+        lstReusmo.add(new Dados("RG", "21421424"));
         lstReusmo.add(new Dados("CPF", "23523532143"));
 
         List<Dados> lstBeneficios = new ArrayList<>();
