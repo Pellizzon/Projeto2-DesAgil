@@ -23,7 +23,7 @@ import java.util.List;
 import br.edu.insper.al.matheusp1.projeto2.R;
 import br.edu.insper.al.matheusp1.projeto2.data.LoginRepository;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends SecondaryActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.getMenu().getItem(0).setChecked(true);
