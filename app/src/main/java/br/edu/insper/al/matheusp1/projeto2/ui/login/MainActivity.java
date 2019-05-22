@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         // cria os grupos
         List<String> lstGrupos = new ArrayList<>();
         lstGrupos.add("Resumo");
-        lstGrupos.add("Beneficios");
+        lstGrupos.add("Benefícios");
         lstGrupos.add("Férias");
 
         // cria os itens de cada grupo
