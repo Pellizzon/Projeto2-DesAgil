@@ -12,7 +12,7 @@
         <activity
             android:name=".ui.login.ImpostoActivity"
             android:label="@string/title_activity_imposto"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.login.FeriasActivity"
             android:label="@string/title_activity_ferias"

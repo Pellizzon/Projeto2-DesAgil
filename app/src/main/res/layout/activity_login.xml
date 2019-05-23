@@ -17,9 +17,7 @@
         android:layout_marginBottom="30dp"
         android:contentDescription="@string/descricao_imagem"
         android:src="@drawable/avante_logo_roxo"
-        app:layout_constraintBottom_toTopOf="@+id/username"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintBottom_toTopOf="@+id/username" />
 
     <EditText
         android:id="@+id/username"
