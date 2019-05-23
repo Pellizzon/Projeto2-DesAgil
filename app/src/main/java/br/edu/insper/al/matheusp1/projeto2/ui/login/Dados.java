@@ -1,6 +1,6 @@
 package br.edu.insper.al.matheusp1.projeto2.ui.login;
 
-public class Dados {
+class Dados {
 
     private String nome;
     private String valor;
@@ -20,10 +20,6 @@ public class Dados {
 
     public String getValor() {
         return valor;
-    }
-
-    public String getMais() {
-        return null;
     }
 
     public void setValor(String valor) {

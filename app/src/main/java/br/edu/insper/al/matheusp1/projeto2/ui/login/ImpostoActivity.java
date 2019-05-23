@@ -2,9 +2,6 @@ package br.edu.insper.al.matheusp1.projeto2.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -15,8 +12,7 @@ import android.support.v7.widget.Toolbar;
 
 import br.edu.insper.al.matheusp1.projeto2.R;
 
-public class ImpostoActivity extends SecondaryActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class ImpostoActivity extends SecondaryActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +30,6 @@ public class ImpostoActivity extends SecondaryActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.

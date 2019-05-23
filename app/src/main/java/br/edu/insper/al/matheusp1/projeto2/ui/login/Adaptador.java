@@ -13,11 +13,11 @@ import android.widget.TextView;
 
 import br.edu.insper.al.matheusp1.projeto2.R;
 
-public class Adaptador extends BaseExpandableListAdapter {
+class Adaptador extends BaseExpandableListAdapter {
 
-    private List<String> lstGrupos;
-    private HashMap<String, List<Dados>> lstItensGrupos;
-    private Context context;
+    private final List<String> lstGrupos;
+    private final HashMap<String, List<Dados>> lstItensGrupos;
+    private final Context context;
 
     public Adaptador(Context context, List<String> grupos, HashMap<String, List<Dados>> itensGrupos) {
         // inicializa as variáveis da classe
@@ -84,7 +84,7 @@ public class Adaptador extends BaseExpandableListAdapter {
 
         }
 
-        TextView tvGrupo = (TextView) convertView.findViewById(R.id.tvGrupo);
+        TextView tvGrupo = convertView.findViewById(R.id.tvGrupo);
 
 
 
@@ -107,8 +107,8 @@ public class Adaptador extends BaseExpandableListAdapter {
 
         }
 
-        TextView tvItem = (TextView) convertView.findViewById(R.id.tvItem);
-        TextView tvValor = (TextView) convertView.findViewById(R.id.tvValor);
+        TextView tvItem = convertView.findViewById(R.id.tvItem);
+        TextView tvValor = convertView.findViewById(R.id.tvValor);
 
         Dados dado = (Dados) getChild(groupPosition, childPosition);
         tvItem.setText(dado.getNome());
