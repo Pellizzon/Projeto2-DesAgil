@@ -38,28 +38,30 @@ public class MainActivity extends SecondaryActivity {
 
         // cria os grupos
         List<String> lstGrupos = new ArrayList<>();
-        lstGrupos.add("Resumo");
-        lstGrupos.add("Beneficios");
-        lstGrupos.add("Férias");
+        lstGrupos.add(getString(R.string.resumo));
+        lstGrupos.add(getString(R.string.beneficios));
+        lstGrupos.add(getString(R.string.financeiro));
 
         // cria os itens de cada grupo
         List<Dados> lstReusmo = new ArrayList<>();
-        lstReusmo.add(new Dados("Nome", "vitor"));
-        lstReusmo.add(new Dados("RG", "21421424"));
-        lstReusmo.add(new Dados("CPF", "23523532143"));
+        lstReusmo.add(new Dados("Nome", "Vítor Calcete Marques"));
+        lstReusmo.add(new Dados("RG", "3996669-X"));
+        lstReusmo.add(new Dados("CPF", "385.001.958-60"));
 
         List<Dados> lstBeneficios = new ArrayList<>();
-        lstBeneficios.add(new Dados("Alface", "23523532143"));
-        lstBeneficios.add(new Dados("Tomate", "23523532143"));
+        lstBeneficios.add(new Dados("Vale Transporte (R$)", "450,00"));
+        lstBeneficios.add(new Dados("Vale Refeição (R$)", "1050,00"));
+        lstBeneficios.add(new Dados("Vale Alimentação (R$)", "250,00"));
+        lstBeneficios.add(new Dados("Seguro (R$)", "550,00"));
 
-        List<Dados> lstFerias = new ArrayList<>();
-        lstFerias.add(new Dados("Chave de Fenda", "23523532143"));
+        List<Dados> lstFinanceiro = new ArrayList<>();
+        lstFinanceiro.add(new Dados("Salário (R$)", "6500,00"));
 
         // cria o "relacionamento" dos grupos com seus itens
         HashMap<String, List<Dados>> lstItensGrupo = new HashMap<>();
         lstItensGrupo.put(lstGrupos.get(0), lstReusmo);
         lstItensGrupo.put(lstGrupos.get(1), lstBeneficios);
-        lstItensGrupo.put(lstGrupos.get(2), lstFerias);
+        lstItensGrupo.put(lstGrupos.get(2), lstFinanceiro);
 
         // cria um adaptador (BaseExpandableListAdapter) com os dados acima
         Adaptador adaptador = new Adaptador(this, lstGrupos, lstItensGrupo);
