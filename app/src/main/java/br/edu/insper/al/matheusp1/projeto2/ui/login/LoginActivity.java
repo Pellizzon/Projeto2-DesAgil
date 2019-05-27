@@ -29,6 +29,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "EmailPassword";
 
+    private ProgressBar loading;
+
+    // Passando cpf para MainActivity
+    public static final String KEY = "br.edu.insper.al.matheusp1.projeto2.ui.login.KEY";
+    private String chave;
+
     // [START declare_auth]
     private FirebaseAuth mAuth;
     // [END declare_auth]
@@ -92,6 +98,12 @@ public class LoginActivity extends AppCompatActivity {
                     passwordEditText.getText().toString());
             signIn(emailEditText.getText().toString(), passwordEditText.getText().toString());
 
+            // Passando CPF para a chave da MainActivity
+            this.chave = passwordEditText.getText().toString();
+
+            // Consertando bug da progress bar
+            this.loading = loadingProgressBar;
+
         });
 
         // [START initialize_auth]
@@ -120,6 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra(KEY, chave);
                             // Inicia a Activity especificada na Intent.
                             startActivity(intent);
                             // Sign in success, update UI with the signed-in user's information
@@ -127,9 +140,10 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), getString(R.string.welcome), Toast.LENGTH_LONG).show();
                             FirebaseUser user = mAuth.getCurrentUser();
                         } else {
+                            loading.setVisibility(View.INVISIBLE);
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, getString(R.string.login_failed),
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
