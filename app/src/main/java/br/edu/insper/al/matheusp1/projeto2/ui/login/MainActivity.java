@@ -2,14 +2,16 @@ package br.edu.insper.al.matheusp1.projeto2.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.MenuItem;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +20,10 @@ import java.util.List;
 import br.edu.insper.al.matheusp1.projeto2.R;
 
 public class MainActivity extends SecondaryActivity {
+
+    // [START declare_auth]
+    private FirebaseAuth mAuth;
+    // [END declare_auth]
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +73,20 @@ public class MainActivity extends SecondaryActivity {
         Adaptador adaptador = new Adaptador(this, lstGrupos, lstItensGrupo);
         // define o apadtador do ExpandableListView
         elvCompra.setAdapter(adaptador);
+
+        // [START initialize_auth]
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+        // [END initialize_auth]
+    }
+
+    private void signOut() {
+        mAuth.signOut();
+        Toast.makeText(getApplicationContext(), "Até mais!", Toast.LENGTH_LONG).show();
+        // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        // Inicia a Activity especificada na Intent.
+        startActivity(intent);
     }
 
     @Override
@@ -90,10 +110,7 @@ public class MainActivity extends SecondaryActivity {
             // Inicia a Activity especificada na Intent.
             startActivity(intent);
         } else if (id == R.id.nav_logout) {
-            // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            // Inicia a Activity especificada na Intent.
-            startActivity(intent);
+            signOut();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

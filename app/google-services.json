@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "884944654850",
+    "firebase_url": "https://projeto2-desagil.firebaseio.com",
+    "project_id": "projeto2-desagil",
+    "storage_bucket": "projeto2-desagil.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884944654850:android:2bcdb972a848e2eb",
+        "android_client_info": {
+          "package_name": "br.edu.insper.al.matheusp1.projeto2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884944654850-aqa37eii0as7bmdikdu5qa57kn046qei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.edu.insper.al.matheusp1.projeto2",
+            "certificate_hash": "22787e3cbeb0fc3491065ba77ad3a86f24bc89af"
+          }
+        },
+        {
+          "client_id": "884944654850-fd0vob25ahhf7r52jipunhvg15r4aplk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVRccUF3Z8CGUDZ8CJ28rB0JY8Rw0ups8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884944654850-fd0vob25ahhf7r52jipunhvg15r4aplk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
