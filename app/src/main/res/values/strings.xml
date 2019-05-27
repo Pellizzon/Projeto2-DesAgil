@@ -20,13 +20,13 @@
 
     <string name="title_activity_login">Avante</string>
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
+    <string name="prompt_password">Senha</string>
     <string name="action_sign_in">Entrar</string>
     <string name="action_sign_in_short">Entrar</string>
-    <string name="welcome">"Welcome!"</string>
-    <string name="invalid_email">Not a valid email</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="welcome">"Olá, "</string>
+    <string name="invalid_email">E-mail inválido</string>
+    <string name="invalid_password">Senha deve conter mais de 5 caracteres</string>
+    <string name="login_failed">"Falha de Autenticação"</string>
     <string name="title_activity_pgto">Demonstrativos de Pagamento</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
