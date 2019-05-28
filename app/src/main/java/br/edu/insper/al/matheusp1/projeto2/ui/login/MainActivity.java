@@ -22,8 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +32,11 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
 
     private TextView nome;
     private TextView email;
+    private List<Dados> lstReusmo = new ArrayList<>();
+    private List<Dados> lstBeneficios = new ArrayList<>();
+    private List<Dados> lstFinanceiro = new ArrayList<>();
+//  Criando HashMap para pegar dados da pessoa
+    private static HashMap<String, String> personInfos;
 
     private static final String TAG = "MainActivity";
 
@@ -55,8 +58,7 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
 
         // Obtém uma referência para o caminho /a do banco de dados.
         DatabaseReference user = database.getReference(cpf);
-        DatabaseReference NOME = user.child("Nome");
-        DatabaseReference EMAIL = user.child("E-mail");
+        user.addValueEventListener(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -80,21 +82,6 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
         lstGrupos.add(getString(R.string.beneficios));
         lstGrupos.add(getString(R.string.financeiro));
 
-        // cria os itens de cada grupo
-        List<Dados> lstReusmo = new ArrayList<>();
-        lstReusmo.add(new Dados("Nome", "Vítor Calcete Marques"));
-        lstReusmo.add(new Dados("RG", "3996669-X"));
-        lstReusmo.add(new Dados("CPF", "385.001.958-60"));
-
-        List<Dados> lstBeneficios = new ArrayList<>();
-        lstBeneficios.add(new Dados("Vale Transporte (R$)", "450,00"));
-        lstBeneficios.add(new Dados("Vale Refeição (R$)", "1050,00"));
-        lstBeneficios.add(new Dados("Vale Alimentação (R$)", "250,00"));
-        lstBeneficios.add(new Dados("Seguro (R$)", "550,00"));
-
-        List<Dados> lstFinanceiro = new ArrayList<>();
-        lstFinanceiro.add(new Dados("Salário (R$)", "6500,00"));
-
         // cria o "relacionamento" dos grupos com seus itens
         HashMap<String, List<Dados>> lstItensGrupo = new HashMap<>();
         lstItensGrupo.put(lstGrupos.get(0), lstReusmo);
@@ -110,11 +97,6 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
-
-        // Adiciona esta Activity à lista de
-        // observadores de mudanças em /b.
-        NOME.addValueEventListener(this);
-        EMAIL.addValueEventListener(this);
     }
 
     private void signOut() {
@@ -145,19 +127,35 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
     // que algum valor em /b sofrer alguma mudança.
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        String text;
         try {
 
             // O método getValue recebe como parâmetro uma
             // classe Java que representa o tipo de dado
             // que você acredita estar lá. Se você errar,
             // esse método vai lançar uma DatabaseException.
-            text = dataSnapshot.getValue(String.class);
+            personInfos = (HashMap<String, String>) dataSnapshot.getValue();
+
         } catch (DatabaseException exception) {
-            text = "Failed to parse value";
+            Log.d("MainActivy", exception.getMessage());
         }
-        nome.setText(text);
-        email.setText(text);
+        nome.setText(personInfos.get("Nome"));
+        email.setText(personInfos.get("E-mail"));
+        // cria os itens de cada grupo
+
+        lstReusmo.add(new Dados("Nome", "Vítor Calcete Marques"));
+        lstReusmo.add(new Dados("RG", "3996669-X"));
+        lstReusmo.add(new Dados("CPF", "385.001.958-60"));
+
+
+        lstBeneficios.add(new Dados("Vale Transporte (R$)", "450,00"));
+        lstBeneficios.add(new Dados("Vale Refeição (R$)", "1050,00"));
+        lstBeneficios.add(new Dados("Vale Alimentação (R$)", "250,00"));
+        lstBeneficios.add(new Dados("Seguro (R$)", "550,00"));
+
+        for (String chave: personInfos.keySet()) {
+            lstFinanceiro.add(new Dados(chave, personInfos.get(chave)));
+        }
+        lstFinanceiro.add(new Dados("Salário (R$)", "6500,00"));
     }
 
     // Este método é chamado caso ocorra algum problema
