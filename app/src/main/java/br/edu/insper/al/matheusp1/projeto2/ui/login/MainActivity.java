@@ -131,22 +131,7 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_pagto) {
-            // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
-            Intent intent = new Intent(MainActivity.this, PgtoActivity.class);
-            // Inicia a Activity especificada na Intent.
-            startActivity(intent);
-        } else if (id == R.id.nav_ferias) {
-            // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
-            Intent intent = new Intent(MainActivity.this, FeriasActivity.class);
-            // Inicia a Activity especificada na Intent.
-            startActivity(intent);
-        } else if (id == R.id.nav_IR) {
-            // Constrói uma Intent que corresponde ao pedido de "iniciar Activity".
-            Intent intent = new Intent(MainActivity.this, ImpostoActivity.class);
-            // Inicia a Activity especificada na Intent.
-            startActivity(intent);
-        } else if (id == R.id.nav_logout) {
+        if (id == R.id.nav_logout) {
             signOut();
         }
 
