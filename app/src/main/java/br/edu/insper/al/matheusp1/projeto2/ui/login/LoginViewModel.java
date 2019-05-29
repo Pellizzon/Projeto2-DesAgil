@@ -3,18 +3,17 @@ package br.edu.insper.al.matheusp1.projeto2.ui.login;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
-import android.util.Patterns;
 
+import br.edu.insper.al.matheusp1.projeto2.R;
 import br.edu.insper.al.matheusp1.projeto2.data.LoginRepository;
 import br.edu.insper.al.matheusp1.projeto2.data.Result;
 import br.edu.insper.al.matheusp1.projeto2.data.model.LoggedInUser;
-import br.edu.insper.al.matheusp1.projeto2.R;
 
 public class LoginViewModel extends ViewModel {
 
-    private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
-    private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
-    private LoginRepository loginRepository;
+    private final MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
+    private final MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
+    private final LoginRepository loginRepository;
 
     LoginViewModel(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
@@ -55,11 +54,7 @@ public class LoginViewModel extends ViewModel {
         if (email == null) {
             return false;
         }
-        if (!email.contains("@")) {
-            return false;// Patterns.EMAIL_ADDRESS.matcher(email).matches();
-        } else {
-            return true;//!email.trim().isEmpty();
-        }
+        return email.contains("@");
     }
 
     // A placeholder password validation check

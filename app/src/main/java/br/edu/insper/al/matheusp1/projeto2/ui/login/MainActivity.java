@@ -28,15 +28,16 @@ import java.util.List;
 
 import br.edu.insper.al.matheusp1.projeto2.R;
 
+@SuppressWarnings("unchecked")
 public class MainActivity extends SecondaryActivity implements ValueEventListener {
 
     private TextView nome;
     private TextView email;
-    private List<Dados> lstReusmo = new ArrayList<>();
-    private List<Dados> lstBeneficios = new ArrayList<>();
-    private List<Dados> lstFinanceiro = new ArrayList<>();
 //  Criando HashMap para pegar dados da pessoa
-    private static HashMap<String, String> personInfos;
+private static HashMap<String, String> personInfos;
+    private final List<Dados> lstReusmo = new ArrayList<>();
+    private final List<Dados> lstBeneficios = new ArrayList<>();
+    private final List<Dados> lstFinanceiro = new ArrayList<>();
 
     private static final String TAG = "MainActivity";
 
@@ -138,6 +139,7 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
         } catch (DatabaseException exception) {
             Log.d("MainActivy", exception.getMessage());
         }
+        assert personInfos != null;
         nome.setText(personInfos.get("Nome"));
         email.setText(personInfos.get("E-mail"));
         // cria os itens de cada grupo
@@ -155,13 +157,12 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
         for (String chave: personInfos.keySet()) {
             lstFinanceiro.add(new Dados(chave, personInfos.get(chave)));
         }
-        lstFinanceiro.add(new Dados("Salário (R$)", "6500,00"));
     }
 
     // Este método é chamado caso ocorra algum problema
     // com a conexão ao banco de dados do Firebase.
     @Override
     public void onCancelled(@NonNull DatabaseError databaseError) {
-        nome.setText("Failed to read value");
+        nome.setText(R.string.erro);
     }
 }
