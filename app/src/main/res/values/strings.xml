@@ -2,38 +2,26 @@
     <string name="app_name">Perfil</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Carregando informações</string>
+    <string name="nav_header_subtitle">Aguarde alguns instantes…</string>
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="menu_home">Perfil</string>
-    <string name="menu_payment">Demonstrativos de Pgto.</string>
-    <string name="menu_vacation">Férias</string>
-    <string name="menu_IR">Imposto de Renda</string>
     <string name="menu_logout">Sair</string>
 
     <string name="financeiro">Financeiro</string>
     <string name="resumo">Resumo</string>
     <string name="beneficios">Benefícios</string>
-    <string name="logout">Sair</string>
-    <string name="imposto">Imposto de Renda</string>
 
     <string name="title_activity_login">Avante</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Senha</string>
+    <string name="prompt_email">E-mail da Avante</string>
+    <string name="prompt_password">Senha (CPF)</string>
     <string name="action_sign_in">Entrar</string>
     <string name="action_sign_in_short">Entrar</string>
-    <string name="welcome">"Olá, "</string>
+    <string name="welcome">Bem Vindo(a)</string>
     <string name="invalid_email">E-mail inválido</string>
     <string name="invalid_password">Senha deve conter mais de 5 caracteres</string>
     <string name="login_failed">"Falha de Autenticação"</string>
-    <string name="title_activity_pgto">Demonstrativos de Pagamento</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
-    <string name="title_activity_ferias">Férias</string>
-    <string name="title_activity_imposto">Imposto de Renda</string>
     <string name="descricao_imagem">Logo Avante</string>
+    <string name="erro">Falha para ler valor</string>
 </resources>

@@ -1,15 +1,15 @@
 package br.edu.insper.al.matheusp1.projeto2.ui.login;
 
 import android.content.Context;
-import android.widget.BaseExpandableListAdapter;
-
-import java.util.HashMap;
-import java.util.List;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
 
 import br.edu.insper.al.matheusp1.projeto2.R;
 
@@ -35,7 +35,7 @@ class Adaptador extends BaseExpandableListAdapter {
     @Override
     public int getChildrenCount(int groupPosition) {
         // retorna a quantidade de itens de um grupo
-        return lstItensGrupos.get(getGroup(groupPosition)).size();
+        return Objects.requireNonNull(lstItensGrupos.get(getGroup(groupPosition))).size();
     }
 
     @Override
@@ -47,7 +47,8 @@ class Adaptador extends BaseExpandableListAdapter {
     @Override
     public Object getChild(int groupPosition, int childPosition) {
         // retorna um item do grupo
-        return lstItensGrupos.get(getGroup(groupPosition)).get(childPosition);
+        return Objects.requireNonNull
+                (lstItensGrupos.get(getGroup(groupPosition))).get(childPosition);
     }
 
     @Override
@@ -86,12 +87,7 @@ class Adaptador extends BaseExpandableListAdapter {
 
         TextView tvGrupo = convertView.findViewById(R.id.tvGrupo);
 
-
-
-
         tvGrupo.setText((String) getGroup(groupPosition));
-
-
 
         return convertView;
     }
@@ -113,7 +109,6 @@ class Adaptador extends BaseExpandableListAdapter {
         Dados dado = (Dados) getChild(groupPosition, childPosition);
         tvItem.setText(dado.getNome());
         tvValor.setText(dado.getValor());
-
 
         return convertView;
     }
