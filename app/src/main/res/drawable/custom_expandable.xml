@@ -2,14 +2,14 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:gravity="center_vertical"
-        android:left="10sp"
-        android:height="10sp"
-        android:width="10sp">
+        android:left="5sp"
+        android:height="30sp"
+        android:width="30sp">
         <selector xmlns:android="http://schemas.android.com/apk/res/android">
-            <item android:drawable="@drawable/ic_add"
+            <item android:drawable="@drawable/ic_keyboard_arrow_up_yellow_24dp"
                 android:state_expanded="false" />
 
-            <item android:drawable="@drawable/ic_remove"
+            <item android:drawable="@drawable/ic_keyboard_arrow_down_yellow_24dp"
                 android:state_expanded="true" />
         </selector>
     </item>

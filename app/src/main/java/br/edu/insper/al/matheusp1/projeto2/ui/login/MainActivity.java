@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import br.edu.insper.al.matheusp1.projeto2.R;
 
@@ -145,22 +146,22 @@ private static HashMap<String, String> personInfos;
         Adaptador adaptador = new Adaptador(this, lstGrupos, lstItensGrupo);
         // define o apadtador do ExpandableListView
         elvCompra.setAdapter(adaptador);
-        String nome_upper = personInfos.get("Nome").toUpperCase();
-        String nome_lower = personInfos.get("Nome").toLowerCase();
-        String first_name = nome_upper.substring(0,1);
+        String nome_upper = Objects.requireNonNull(personInfos.get("Nome")).toUpperCase();
+        String nome_lower = Objects.requireNonNull(personInfos.get("Nome")).toLowerCase();
+        StringBuilder first_name = new StringBuilder(nome_upper.substring(0, 1));
         for (int i = 1; i < nome_upper.length(); i++) {
             if (nome_upper.toCharArray()[i] == ' ') {
                 break;
             }
             else {
-                first_name += nome_lower.toCharArray()[i];
+                first_name.append(nome_lower.toCharArray()[i]);
             }
         }
-        if (personInfos.get("Sexo").toCharArray()[0] == 'M') {
+        if (Objects.requireNonNull(personInfos.get("Sexo")).toCharArray()[0] == 'M') {
             Toast.makeText(getApplicationContext(), getString(R.string.welcomeM)
                     + ", " + first_name + "!", Toast.LENGTH_LONG).show();
         }
-        else if (personInfos.get("Sexo").toCharArray()[0] == 'F') {
+        else if (Objects.requireNonNull(personInfos.get("Sexo")).toCharArray()[0] == 'F') {
             Toast.makeText(getApplicationContext(), getString(R.string.welcomeF) + ", "
                     + first_name + "!", Toast.LENGTH_LONG).show();
         }
@@ -170,7 +171,7 @@ private static HashMap<String, String> personInfos;
         }
 
         nome.setText(personInfos.get("Nome"));
-        email.setText(personInfos.get("E-mail").toLowerCase());
+        email.setText(Objects.requireNonNull(personInfos.get("E-mail")).toLowerCase());
         // cria os itens de cada grupo
         lstInfosCadastrais.add(new Dados("Sexo", personInfos.get("Sexo")));
         lstInfosCadastrais.add(new Dados("Idade", personInfos.get("Idade")));
@@ -179,72 +180,72 @@ private static HashMap<String, String> personInfos;
         lstInfosCadastrais.add(new Dados("UF Nascimento", personInfos.get("UF Nascimento")));
         lstInfosCadastrais.add(new Dados("Cidade de Nascimento",
                 personInfos.get("Cidade Nascimento")));
-        String estadoCivil_upper = personInfos.get("Estado civil").toUpperCase();
-        String estadoCivil_lower = personInfos.get("Estado civil").toLowerCase();
-        String estadoCivil_final = estadoCivil_upper.substring(0,1);
+        String estadoCivil_upper = Objects.requireNonNull(personInfos.get("Estado civil")).toUpperCase();
+        String estadoCivil_lower = Objects.requireNonNull(personInfos.get("Estado civil")).toLowerCase();
+        StringBuilder estadoCivil_final = new StringBuilder(estadoCivil_upper.substring(0, 1));
         for (int i = 1; i < estadoCivil_upper.length(); i++) {
             if (estadoCivil_upper.toCharArray()[i - 1] == ' ') {
-                estadoCivil_final += estadoCivil_upper.toCharArray()[i];
+                estadoCivil_final.append(estadoCivil_upper.toCharArray()[i]);
             }
             else {
-                estadoCivil_final += estadoCivil_lower.toCharArray()[i];
+                estadoCivil_final.append(estadoCivil_lower.toCharArray()[i]);
             }
         }
-        lstInfosCadastrais.add(new Dados("Estado Civil", estadoCivil_final));
+        lstInfosCadastrais.add(new Dados("Estado Civil", estadoCivil_final.toString()));
         lstInfosCadastrais.add(new Dados("UF Residência", personInfos.get("UF Residência")));
         lstInfosCadastrais.add(new Dados("Cidade de Residência",
                 personInfos.get("Cidade Residência")));
-        String bairro_upper = personInfos.get("Bairro").toUpperCase();
-        String bairro_lower = personInfos.get("Bairro").toLowerCase();
-        String bairro_final = bairro_upper.substring(0,1);
+        String bairro_upper = Objects.requireNonNull(personInfos.get("Bairro")).toUpperCase();
+        String bairro_lower = Objects.requireNonNull(personInfos.get("Bairro")).toLowerCase();
+        StringBuilder bairro_final = new StringBuilder(bairro_upper.substring(0, 1));
         for (int i = 1; i < bairro_upper.length(); i++) {
             if (bairro_upper.toCharArray()[i - 1] == ' ') {
-                bairro_final += bairro_upper.toCharArray()[i];
+                bairro_final.append(bairro_upper.toCharArray()[i]);
             }
             else {
-                bairro_final += bairro_lower.toCharArray()[i];
+                bairro_final.append(bairro_lower.toCharArray()[i]);
             }
         }
-        lstInfosCadastrais.add(new Dados("Bairro", bairro_final));
-        String endereco_upper = personInfos.get("Endereço").toUpperCase();
-        String endereco_lower = personInfos.get("Endereço").toLowerCase();
-        String endereco_final = endereco_upper.substring(0,1);
+        lstInfosCadastrais.add(new Dados("Bairro", bairro_final.toString()));
+        String endereco_upper = Objects.requireNonNull(personInfos.get("Endereço")).toUpperCase();
+        String endereco_lower = Objects.requireNonNull(personInfos.get("Endereço")).toLowerCase();
+        StringBuilder endereco_final = new StringBuilder(endereco_upper.substring(0, 1));
         for (int i = 1; i < endereco_upper.length(); i++) {
             if (endereco_upper.toCharArray()[i - 1] == ' ') {
-                endereco_final += endereco_upper.toCharArray()[i];
+                endereco_final.append(endereco_upper.toCharArray()[i]);
             }
             else {
-                endereco_final += endereco_lower.toCharArray()[i];
+                endereco_final.append(endereco_lower.toCharArray()[i]);
             }
         }
         lstInfosCadastrais.add(new Dados("Endereço", endereco_final
                 + ", " + personInfos.get("Número")));
         if (personInfos.get("Complemento") != null) {
-            String complemento_upper = personInfos.get("Complemento").toUpperCase();
-            String complemento_lower = personInfos.get("Complemento").toLowerCase();
-            String complemento_final = complemento_upper.substring(0,1);
+            String complemento_upper = Objects.requireNonNull(personInfos.get("Complemento")).toUpperCase();
+            String complemento_lower = Objects.requireNonNull(personInfos.get("Complemento")).toLowerCase();
+            StringBuilder complemento_final = new StringBuilder(complemento_upper.substring(0, 1));
             for (int i = 1; i < complemento_upper.length(); i++) {
                 if (complemento_upper.toCharArray()[i - 1] == ' ') {
-                    complemento_final += complemento_upper.toCharArray()[i];
+                    complemento_final.append(complemento_upper.toCharArray()[i]);
                 }
                 else {
-                    complemento_final += complemento_lower.toCharArray()[i];
+                    complemento_final.append(complemento_lower.toCharArray()[i]);
                 }
             }
-            lstInfosCadastrais.add(new Dados("Complemento", complemento_final));
+            lstInfosCadastrais.add(new Dados("Complemento", complemento_final.toString()));
         }
         lstInfosCadastrais.add(new Dados("CEP", personInfos.get("CEP")));
         lstInfosCadastrais.add(new Dados("Grau de Instrução",
                 personInfos.get("Grau de Instrução")));
         if (personInfos.get("Telefone Residência") != null) {
             lstInfosCadastrais.add(new Dados("Telefone Residencial", "("
-                    + personInfos.get("Telefone Residência").substring(0,2) + ") "
-                    + personInfos.get("Telefone Residência").substring(2)));
+                    + Objects.requireNonNull(personInfos.get("Telefone Residência")).substring(0,2) + ") "
+                    + Objects.requireNonNull(personInfos.get("Telefone Residência")).substring(2)));
         }
         if (personInfos.get("Telefone Celular") != null) {
             lstInfosCadastrais.add(new Dados("Telefone Celular", "("
-                    + personInfos.get("Telefone Celular").substring(0,2) + ") "
-                    + personInfos.get("Telefone Celular").substring(2)));
+                    + Objects.requireNonNull(personInfos.get("Telefone Celular")).substring(0,2) + ") "
+                    + Objects.requireNonNull(personInfos.get("Telefone Celular")).substring(2)));
         }
 
         if (personInfos.get("Dígito RG") != null) {
@@ -256,7 +257,7 @@ private static HashMap<String, String> personInfos;
         }
         lstDocumentos.add(new Dados("Data Expedição RG",
                 personInfos.get("Data Expedição RG")));
-        if (personInfos.get("Órgão Expedidor RG").equals("Secretaria de Segurança Publica")) {
+        if (Objects.requireNonNull(personInfos.get("Órgão Expedidor RG")).equals("Secretaria de Segurança Publica")) {
             lstDocumentos.add(new Dados("Órgão Expedidor RG", "SSP"));
         }
         else {
@@ -264,10 +265,10 @@ private static HashMap<String, String> personInfos;
                     personInfos.get("Órgão Expedidor RG")));
         }
 
-        lstDocumentos.add(new Dados("CPF", personInfos.get("CPF").substring(0,3)
-                + "." + personInfos.get("CPF").substring(3,6) + "."
-                + personInfos.get("CPF").substring(6,9) + "-"
-                + personInfos.get("CPF").substring(9)));
+        lstDocumentos.add(new Dados("CPF", Objects.requireNonNull(personInfos.get("CPF")).substring(0,3)
+                + "." + Objects.requireNonNull(personInfos.get("CPF")).substring(3,6) + "."
+                + Objects.requireNonNull(personInfos.get("CPF")).substring(6,9) + "-"
+                + Objects.requireNonNull(personInfos.get("CPF")).substring(9)));
         lstDocumentos.add(new Dados("PIS/PASEP", personInfos.get("PIS OU PASEP")));
         if (personInfos.get("Dt Cadastro PIS") != null) {
             lstDocumentos.add(new Dados("Data Cadastro PIS", personInfos.get("Dt Cadastro PIS")));
@@ -282,7 +283,7 @@ private static HashMap<String, String> personInfos;
         }
         if (personInfos.get("Categoria Militar") != null) {
             lstDocumentos.add(new Dados("Categoria Militar",
-                    personInfos.get("Categoria Militar").toUpperCase()));
+                    Objects.requireNonNull(personInfos.get("Categoria Militar")).toUpperCase()));
         }
         lstDocumentos.add(new Dados("Título de Eleitor", personInfos.get("Titulo Eleitor")));
         lstDocumentos.add(new Dados("UF Votação", personInfos.get("UF Votação")));
@@ -291,47 +292,47 @@ private static HashMap<String, String> personInfos;
 
         lstAvante.add(new Dados("RE", personInfos.get("RE")));
         lstAvante.add(new Dados("Data de Admissão", personInfos.get("Dt Admissão")));
-        String cargo_upper = personInfos.get("Cargo").toUpperCase();
-        String cargo_lower = personInfos.get("Cargo").toLowerCase();
-        String cargo_final = cargo_upper.substring(0,1);
+        String cargo_upper = Objects.requireNonNull(personInfos.get("Cargo")).toUpperCase();
+        String cargo_lower = Objects.requireNonNull(personInfos.get("Cargo")).toLowerCase();
+        StringBuilder cargo_final = new StringBuilder(cargo_upper.substring(0, 1));
         for (int i = 1; i < cargo_upper.length(); i++) {
             if (cargo_upper.toCharArray()[i - 1] == ' ') {
-                cargo_final += cargo_upper.toCharArray()[i];
+                cargo_final.append(cargo_upper.toCharArray()[i]);
             } else {
-                cargo_final += cargo_lower.toCharArray()[i];
+                cargo_final.append(cargo_lower.toCharArray()[i]);
             }
         }
-        lstAvante.add(new Dados("Cargo", cargo_final));
-        String dept_upper = personInfos.get("DEPARTAMENTO OU FILIAL").toUpperCase();
-        String dept_lower = personInfos.get("DEPARTAMENTO OU FILIAL").toLowerCase();
-        String dept_final = dept_upper.substring(0,1);
+        lstAvante.add(new Dados("Cargo", cargo_final.toString()));
+        String dept_upper = Objects.requireNonNull(personInfos.get("DEPARTAMENTO OU FILIAL")).toUpperCase();
+        String dept_lower = Objects.requireNonNull(personInfos.get("DEPARTAMENTO OU FILIAL")).toLowerCase();
+        StringBuilder dept_final = new StringBuilder(dept_upper.substring(0, 1));
         for (int i = 1; i < dept_upper.length(); i++) {
             if (dept_upper.toCharArray()[i - 1] == ' ') {
-                dept_final += dept_upper.toCharArray()[i];
+                dept_final.append(dept_upper.toCharArray()[i]);
             } else {
-                dept_final += dept_lower.toCharArray()[i];
+                dept_final.append(dept_lower.toCharArray()[i]);
             }
         }
-        lstAvante.add(new Dados("Departamento/Filial", dept_final));
-        String lider_upper = personInfos.get("Líder Imediato").toUpperCase();
-        String lider_lower = personInfos.get("Líder Imediato").toLowerCase();
-        String lider_final = "";
+        lstAvante.add(new Dados("Departamento/Filial", dept_final.toString()));
+        String lider_upper = Objects.requireNonNull(personInfos.get("Líder Imediato")).toUpperCase();
+        String lider_lower = Objects.requireNonNull(personInfos.get("Líder Imediato")).toLowerCase();
+        StringBuilder lider_final = new StringBuilder();
         boolean primeira_letra = false;
         for (int i = 2; i < lider_upper.length(); i++) {
             if (!primeira_letra) {
                 if (lider_upper.toCharArray()[i - 2] == '-') {
-                    lider_final += lider_upper.substring(i, i + 1);
+                    lider_final.append(lider_upper.substring(i, i + 1));
                     primeira_letra = true;
                 }
             } else {
                 if (lider_upper.toCharArray()[i - 1] == ' ') {
-                    lider_final += lider_upper.toCharArray()[i];
+                    lider_final.append(lider_upper.toCharArray()[i]);
                 } else {
-                    lider_final += lider_lower.toCharArray()[i];
+                    lider_final.append(lider_lower.toCharArray()[i]);
                 }
             }
         }
-        lstAvante.add(new Dados("Líder Imediato", lider_final));
+        lstAvante.add(new Dados("Líder Imediato", lider_final.toString()));
 
         lstBanco.add(new Dados("Código do Banco", personInfos.get("Código Banco")));
         lstBanco.add(new Dados("Agência", personInfos.get("Código Agência")));
