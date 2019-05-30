@@ -33,16 +33,13 @@ import br.edu.insper.al.matheusp1.projeto2.R;
 public class MainActivity extends SecondaryActivity implements ValueEventListener {
 
     private TextView nome;
-    private TextView email;
-//  Criando HashMap para pegar dados da pessoa
-private static HashMap<String, String> personInfos;
+    //  Criando HashMap para pegar dados da pessoa
+    private static HashMap<String, String> personInfos;
     private final List<Dados> lstInfosCadastrais = new ArrayList<>();
     private final List<Dados> lstDocumentos = new ArrayList<>();
     private final List<Dados> lstAvante = new ArrayList<>();
     private final List<Dados> lstBanco = new ArrayList<>();
     private final List<Dados> lstFerias = new ArrayList<>();
-
-    private static final String TAG = "MainActivity";
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -122,7 +119,7 @@ private static HashMap<String, String> personInfos;
         }
 
         nome = findViewById(R.id.nome);
-        email = findViewById(R.id.email);
+        TextView email = findViewById(R.id.email);
 
         ExpandableListView elvCompra = findViewById(R.id.elvCompra);
 
