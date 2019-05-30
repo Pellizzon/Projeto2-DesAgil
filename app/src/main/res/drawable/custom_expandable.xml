@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:gravity="center_vertical"
+        android:left="10sp"
+        android:height="10sp"
+        android:width="10sp">
+        <selector xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:drawable="@drawable/ic_add"
+                android:state_expanded="false" />
+
+            <item android:drawable="@drawable/ic_remove"
+                android:state_expanded="true" />
+        </selector>
+    </item>
+</layer-list>

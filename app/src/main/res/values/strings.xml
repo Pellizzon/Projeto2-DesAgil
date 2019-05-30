@@ -9,15 +9,19 @@
     <string name="menu_home">Perfil</string>
     <string name="menu_logout">Sair</string>
 
-    <string name="financeiro">Financeiro</string>
-    <string name="resumo">Resumo</string>
-    <string name="beneficios">Benefícios</string>
+    <string name="avante">Dados Avante</string>
+    <string name="infos_cadastrais">Dados Cadastrais</string>
+    <string name="documentos">Documentos</string>
+    <string name="banco">Dados Bancários</string>
+    <string name="ferias">Férias</string>
 
     <string name="title_activity_login">Avante</string>
     <string name="prompt_email">E-mail da Avante</string>
     <string name="prompt_password">Senha (CPF)</string>
     <string name="action_sign_in">Entrar</string>
     <string name="action_sign_in_short">Entrar</string>
+    <string name="welcomeM">Bem Vindo</string>
+    <string name="welcomeF">Bem Vinda</string>
     <string name="welcome">Bem Vindo(a)</string>
     <string name="invalid_email">E-mail inválido</string>
     <string name="invalid_password">Senha deve conter mais de 5 caracteres</string>
