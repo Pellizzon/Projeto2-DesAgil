@@ -11,7 +11,7 @@ import br.edu.insper.al.matheusp1.projeto2.data.LoginRepository;
  * ViewModel provider factory to instantiate LoginViewModel.
  * Required given LoginViewModel has a non-empty constructor
  */
-public class LoginViewModelFactory implements ViewModelProvider.Factory {
+class LoginViewModelFactory implements ViewModelProvider.Factory {
 
     @NonNull
     @Override

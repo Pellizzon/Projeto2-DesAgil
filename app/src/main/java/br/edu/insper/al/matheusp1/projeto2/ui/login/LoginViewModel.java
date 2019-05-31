@@ -9,7 +9,7 @@ import br.edu.insper.al.matheusp1.projeto2.data.LoginRepository;
 import br.edu.insper.al.matheusp1.projeto2.data.Result;
 import br.edu.insper.al.matheusp1.projeto2.data.model.LoggedInUser;
 
-public class LoginViewModel extends ViewModel {
+class LoginViewModel extends ViewModel {
 
     private final MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private final MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
@@ -23,19 +23,15 @@ public class LoginViewModel extends ViewModel {
         return loginFormState;
     }
 
-    LiveData<LoginResult> getLoginResult() {
-        return loginResult;
-    }
-
-    public void login(String email, String password) {
+    public void login() {
         // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(email, password);
+        Result.Success<LoggedInUser> result = loginRepository.login();
 
-        if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
+        if (result != null) {
+            LoggedInUser data = result.getData();
             loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
         } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
+            loginResult.setValue(new LoginResult());
         }
     }
 
@@ -45,7 +41,7 @@ public class LoginViewModel extends ViewModel {
         } else if (!isPasswordValid(password)) {
             loginFormState.setValue(new LoginFormState(null, R.string.invalid_password));
         } else {
-            loginFormState.setValue(new LoginFormState(true));
+            loginFormState.setValue(new LoginFormState());
         }
     }
 

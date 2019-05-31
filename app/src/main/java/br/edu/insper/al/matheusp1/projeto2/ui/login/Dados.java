@@ -2,8 +2,8 @@ package br.edu.insper.al.matheusp1.projeto2.ui.login;
 
 class Dados {
 
-    private String nome;
-    private String valor;
+    private final String nome;
+    private final String valor;
 
     public Dados(String nome, String valor) {
         this.nome = nome;

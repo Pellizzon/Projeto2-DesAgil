@@ -5,7 +5,7 @@
         android:left="5sp"
         android:height="30sp"
         android:width="30sp">
-        <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <selector>
             <item android:drawable="@drawable/ic_keyboard_arrow_up_yellow_24dp"
                 android:state_expanded="false" />
 

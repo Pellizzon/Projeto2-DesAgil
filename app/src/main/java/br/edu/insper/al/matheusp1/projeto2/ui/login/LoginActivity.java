@@ -81,8 +81,8 @@ public class LoginActivity extends AppCompatActivity {
         passwordEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                loginViewModel.login(emailEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+                loginViewModel.login(
+                );
             }
             return false;
         });
@@ -90,8 +90,8 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(v -> {
 
             loadingProgressBar.setVisibility(View.VISIBLE);
-            loginViewModel.login(emailEditText.getText().toString(),
-                    passwordEditText.getText().toString());
+            loginViewModel.login(
+            );
             signIn(emailEditText.getText().toString(), passwordEditText.getText().toString());
 
             // Passando CPF para a chave da MainActivity

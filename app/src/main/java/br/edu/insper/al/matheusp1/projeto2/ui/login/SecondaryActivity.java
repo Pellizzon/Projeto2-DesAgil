@@ -1,6 +1,7 @@
 package br.edu.insper.al.matheusp1.projeto2.ui.login;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.view.GravityCompat;
 import android.view.MenuItem;
 import android.support.design.widget.NavigationView;
@@ -45,7 +46,7 @@ public abstract class SecondaryActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         return true;
     }

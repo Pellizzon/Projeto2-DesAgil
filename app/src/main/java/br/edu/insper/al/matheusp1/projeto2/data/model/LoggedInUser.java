@@ -5,16 +5,11 @@ package br.edu.insper.al.matheusp1.projeto2.data.model;
  */
 public class LoggedInUser {
 
-    private final String userId;
     private final String displayName;
 
     public LoggedInUser(String userId, String displayName) {
-        this.userId = userId;
+        String userId1 = userId;
         this.displayName = displayName;
-    }
-
-    public String getUserId() {
-        return userId;
     }
 
     public String getDisplayName() {

@@ -18,10 +18,10 @@ class LoginFormState {
         this.isDataValid = false;
     }
 
-    LoginFormState(boolean isDataValid) {
+    LoginFormState() {
         this.emailError = null;
         this.passwordError = null;
-        this.isDataValid = isDataValid;
+        this.isDataValid = true;
     }
 
     @Nullable

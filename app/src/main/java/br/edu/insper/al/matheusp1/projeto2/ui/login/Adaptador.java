@@ -81,7 +81,7 @@ class Adaptador extends BaseExpandableListAdapter {
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(
                     Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.grupo, null);
+            convertView = layoutInflater.inflate(R.layout.grupo, parent, false);
 
         }
 
@@ -99,7 +99,7 @@ class Adaptador extends BaseExpandableListAdapter {
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(
                     Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.item_grupo, null);
+            convertView = layoutInflater.inflate(R.layout.item_grupo, parent, false);
 
         }
 

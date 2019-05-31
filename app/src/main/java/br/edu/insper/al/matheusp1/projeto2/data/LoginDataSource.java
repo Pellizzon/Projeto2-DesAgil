@@ -9,7 +9,7 @@ import br.edu.insper.al.matheusp1.projeto2.data.model.LoggedInUser;
  */
 public class LoginDataSource {
 
-    public Result.Success login(String username, String password) {
+    public Result.Success login() {
 
         try {
             // TODO: handle loggedInUser authentication
@@ -21,10 +21,5 @@ public class LoginDataSource {
         } catch (Exception e) {
             return new Result.Success<>(new IOException("Erro ao entrar", e));
         }
-    }
-
-    public void logout() {
-        // TODO: revoke authentication
-        logout();
     }
 }
