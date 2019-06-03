@@ -334,6 +334,15 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
         lstBanco.add(new Dados("Código do Banco", personInfos.get("Código Banco")));
         lstBanco.add(new Dados("Agência", personInfos.get("Código Agência")));
         lstBanco.add(new Dados("Conta Bancária", personInfos.get("Conta Bancária")));
+
+        if (personInfos.containsKey("Férias Início")) {
+            lstFerias.add(new Dados("Início", personInfos.get("Férias Início")));
+            lstFerias.add(new Dados("Fim", personInfos.get("Férias Fim")));
+            lstFerias.add(new Dados("Data Limite", personInfos.get("Férias Data Limite")));
+            lstFerias.add(new Dados("Saldo", personInfos.get("Férias Saldo")));
+        } else {
+            lstFerias.add(new Dados(null, "Não foi possível recuperar informações"));
+        }
     }
 
     // Este método é chamado caso ocorra algum problema
