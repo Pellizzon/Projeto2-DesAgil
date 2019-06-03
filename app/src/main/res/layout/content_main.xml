@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
                     android:text="@string/nav_header_subtitle" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -60,5 +61,20 @@
             android:groupIndicator="@drawable/custom_expandable" />
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="64dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/amarelo_avante"
+        android:indeterminateTintMode="src_atop"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.974" />
 
 </FrameLayout>

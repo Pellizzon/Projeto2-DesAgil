@@ -6,7 +6,7 @@
         android:height="30sp"
         android:width="30sp">
         <selector>
-            <item android:drawable="@drawable/ic_keyboard_arrow_up_yellow_24dp"
+            <item android:drawable="@drawable/ic_keyboard_arrow_right_yellow_24dp"
                 android:state_expanded="false" />
 
             <item android:drawable="@drawable/ic_keyboard_arrow_down_yellow_24dp"
