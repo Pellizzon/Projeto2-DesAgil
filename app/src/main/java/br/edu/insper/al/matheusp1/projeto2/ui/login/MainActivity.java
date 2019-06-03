@@ -10,7 +10,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +42,7 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
     private final List<Dados> lstAvante = new ArrayList<>();
     private final List<Dados> lstBanco = new ArrayList<>();
     private final List<Dados> lstFerias = new ArrayList<>();
+    private ProgressBar loadingProgressBar;
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -71,6 +74,9 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        loadingProgressBar = findViewById(R.id.loading);
+        loadingProgressBar.setVisibility(View.VISIBLE);
 
         // [START initialize_auth]
         // Initialize Firebase Auth
@@ -117,6 +123,8 @@ public class MainActivity extends SecondaryActivity implements ValueEventListene
         } catch (DatabaseException exception) {
             Log.d("MainActivy", exception.getMessage());
         }
+
+        loadingProgressBar.setVisibility(View.INVISIBLE);
 
         nome = findViewById(R.id.nome);
         TextView email = findViewById(R.id.email);

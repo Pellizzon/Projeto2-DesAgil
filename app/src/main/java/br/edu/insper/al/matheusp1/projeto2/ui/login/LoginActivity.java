@@ -81,8 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                loginViewModel.login(
-                );
+                loginViewModel.login();
             }
             return false;
         });
